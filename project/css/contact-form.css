@@ -1,0 +1,57 @@
+.btn-icon
+{
+    line-height: 0;
+    font-size: 0;
+    width: auto;
+    padding: 4px;
+}
+.btn-icon:hover
+{
+    background:#fcbd20;
+    border-color: #fcbd20;
+}
+.icon
+{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    font-size: 0;
+}
+.icon-edit
+{
+    background: url(../img/icon-edit.png) top center no-repeat;
+    background-size: cover;
+}
+.icon-delete
+{
+    background: url(../img/icon-delete.png) top center no-repeat;
+    background-size: cover;
+}
+.icon-save
+{
+    background: url(../img/icon-save.png) top center no-repeat;
+    background-size: cover;
+}
+.btn-newsub
+{
+    background:#000;border-color: #000;
+}
+.alert-success, .alert-danger{
+    margin-top: 30px;
+    color: #000;
+    background-color: #ffffff6e;
+}
+.td-text{
+    background: #16181b;
+    border:0;
+    padding:0;
+    color: #fff;
+}
+#outputTab tr td:last-child, #outputTab tr td:nth-child(5){
+    width: 40px;
+    text-align: center;
+}
+#outputTab{
+    max-width: 1060px;
+    margin: 0 auto;
+}
