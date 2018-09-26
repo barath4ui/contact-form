@@ -1,0 +1,165 @@
+<html><head></head><body>
+
+<style>
+.txbox{
+    width:100px;
+    border:1px solid #4CAF50;
+    display:inline-block;
+    margin: 0;
+}
+.hide{display:none;}
+#outputbox{height:20px; width:240px; border:1px solid #000;padding:5px;}
+input[type=button] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    min-width:78px
+}
+form{width:315px}
+</style>
+
+<h2>Calculator</h2>
+
+<form>
+
+  
+  <input type="text" class="txbox hide" name="first" value="" id="first">
+  <input type="text" class="txbox hide" name="operation" value="" id="operation">
+  <input type="text" class="txbox hide" name="second" value="" id="second">
+  <input type="text" class="txbox hide" name="output" value="" id="output">
+
+  <div id="outputbox">
+  	
+  </div>
+  <br/>
+  <input type="button" value="9" onclick="num(this)" id="num9">
+  <input type="button" value="8" onclick="num(this)" id="num8">
+  <input type="button" value="7" onclick="num(this)" id="num7">
+  <input type="button" value="6" onclick="num(this)" id="num6">
+  <input type="button" value="5" onclick="num(this)" id="num5">
+  <input type="button" value="4" onclick="num(this)" id="num4">
+  <input type="button" value="3" onclick="num(this)" id="num3">
+  <input type="button" value="2" onclick="num(this)" id="num2">
+  <input type="button" value="1" onclick="num(this)" id="num1">
+  <input type="button" value="0" onclick="num(this)" id="num0">
+  <input type="button" value="C" onclick="clr()">
+  <input type="button" value="+" onclick="opr(this)">
+  <input type="button" value="-" onclick="opr(this)">
+  <input type="button" value="/" onclick="opr(this)">
+  <input type="button" value="*" onclick="opr(this)">
+  <input type="button" value="=" onclick="equ()" style="width:250px;">
+  
+</form> 
+
+
+<script>
+
+var first, operation, second, output, final1, num1, final2, num2;
+
+first = document.getElementById("first");
+operation = document.getElementById("operation");
+second = document.getElementById("second");
+output = document.getElementById("output");
+outputbox = document.getElementById("outputbox");
+
+function clr(){
+    first.value = "";
+    second.value = "";
+    operation.value = "";
+    output.value = "";
+    first.classList.remove("fvalue-entered");
+    outputbox.innerHTML = "";
+}
+
+function num(n){
+    if(first.classList =="txbox hide fvalue-entered"){
+        num2 = n.value;
+        final2 = second.value + n.value;
+        second.value = final2;
+        outputbox.innerHTML = final2;
+        
+    }
+    else{
+        num1 = n.value;
+        final1 = first.value + n.value;
+        first.value = final1;
+        outputbox.innerHTML = final1;
+        
+    }
+}
+
+function opr(o){
+    if(first.value !==""){
+        var opr = o.value;
+        operation.value = opr;
+        outputbox.innerHTML = opr;
+        first.classList.add("fvalue-entered");
+    }
+    else{
+        first.classList.remove("fvalue-entered");
+    }
+}
+
+function equ(){
+
+var fval, oval, sval, print;
+
+fval = first.value;
+oval = operation.value;
+sval = second.value;
+
+function add(){
+print = parseInt(fval)+parseInt(sval);
+output.value = print;
+outputbox.innerHTML = print;
+}
+function sub(){
+print= parseInt(fval)-parseInt(sval);
+output.value = print;
+outputbox.innerHTML = print;
+}
+function mul(){
+print = parseInt(fval)*parseInt(sval);
+output.value = print;
+outputbox.innerHTML = print;
+}
+function div(){
+print =  parseInt(fval)/parseInt(sval);
+output.value = print;
+outputbox.innerHTML = print;
+}
+function def(){
+alert("Please Choose Operation!");
+}
+
+switch (oval) {
+    case "+":
+        add();
+        break;
+    case "-":
+        sub();
+        break;
+    case "*":
+        mul();
+        break;
+    case "/":
+        div()
+        break;
+   default: 
+    def();
+}
+
+
+
+}
+
+
+</script>
+
+
+
+</body></html>
